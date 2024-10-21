@@ -10,6 +10,7 @@ generate_ipv6() {
     else
         echo "当前路径下已存在 ipv6.sh，跳过下载。"
     fi
+    
      clear
      ip a
     # 获取用户输入
@@ -28,9 +29,9 @@ generate_ipv6() {
     target_network_bits=${target_network_bits:-128}
 
     # 输出命令并添加回车符
-    echo "bash ipv6.sh $ipv6_network $num_addresses $target_network_bits\n"
+    echo "bash ipv6.sh $ipv6_network $num_addresses $target_network_bits"
     read 
-    echo "bash ipv6.sh $ipv6_network $num_addresses $target_network_bits > ipv6.txt\n"
+    echo "bash ipv6.sh $ipv6_network $num_addresses $target_network_bits > ipv6.txt"
     read 
 }
 
