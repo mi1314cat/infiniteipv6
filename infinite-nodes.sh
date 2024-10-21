@@ -28,9 +28,9 @@ num_addresses=${num_addresses:-15}
 target_network_bits=${target_network_bits:-128}
 
 # 输出命令
-echo "bash ipv6.sh $ipv6_network $num_addresses $target_network_bits"
+echo "bash ipv6.sh $ipv6_network $num_addresses $target_network_bits\n"
 read -p "回车继续"
-echo "bash ipv6.sh $ipv6_network $num_addresses $target_network_bits > ipv6.txt"
+echo "bash ipv6.sh $ipv6_network $num_addresses $target_network_bits > ipv6.txt\n"
 read -p "回车继续"
 }
 # 删除生成的文件的前五行
@@ -56,7 +56,7 @@ ip a
 
 read -p "请输入ipv6网络接口: " network_interface
 
-echo "bash assign_ipv6.sh $network_interface ipv6.txt"
+echo "bash assign_ipv6.sh $network_interface ipv6.txt\n"
 }
 generate_nodes() {
 
