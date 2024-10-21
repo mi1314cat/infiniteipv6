@@ -20,6 +20,7 @@ num_addresses=${num_addresses:-15}
 target_network_bits=${target_network_bits:-128}
 
 # 输出命令
+echo "bash ipv6.sh $ipv6_network $num_addresses $target_network_bits"
 echo "bash ipv6.sh $ipv6_network $num_addresses $target_network_bits > ipv6.txt"
 }
 # 删除生成的文件的前五行
