@@ -10,7 +10,8 @@ generate_ipv6() {
     else
         echo "当前路径下已存在 ipv6.sh，跳过下载。"
     fi
-
+     clear
+     ip a
     # 获取用户输入
     read -p "请输入 IPv6 网络地址: " ipv6_network
     read -p "请输入要生成的地址数量 (默认 15): " num_addresses
@@ -48,11 +49,13 @@ assign_ipv6() {
     else
         echo "当前路径下已存在 assign_ipv6.sh，跳过下载。"
     fi
-
+    clear
+    ip a
     read -p "请输入ipv6网络接口: " network_interface
 
     # 输出命令并添加回车符
-    echo "bash assign_ipv6.sh $network_interface ipv6.txt\n"
+    echo "bash assign_ipv6.sh $network_interface ipv6.txt"
+    read
 }
 
 generate_nodes() {
