@@ -29,7 +29,9 @@ target_network_bits=${target_network_bits:-128}
 
 # 输出命令
 echo "bash ipv6.sh $ipv6_network $num_addresses $target_network_bits"
+read -p "回车继续"
 echo "bash ipv6.sh $ipv6_network $num_addresses $target_network_bits > ipv6.txt"
+read -p "回车继续"
 }
 # 删除生成的文件的前五行
 trim_file() {
