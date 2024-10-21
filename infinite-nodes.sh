@@ -28,9 +28,9 @@ generate_ipv6() {
 
     # 输出命令并添加回车符
     echo "bash ipv6.sh $ipv6_network $num_addresses $target_network_bits\n"
-    read -p "回车继续"
+    read 
     echo "bash ipv6.sh $ipv6_network $num_addresses $target_network_bits > ipv6.txt\n"
-    read -p "回车继续"
+    read 
 }
 
 trim_file() {
