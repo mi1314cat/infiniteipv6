@@ -31,9 +31,10 @@ generate_ipv6() {
     # 输出命令并添加回车符
     echo "bash ipv6.sh $ipv6_network $num_addresses $target_network_bits"
      bash ipv6.sh "$ipv6_network" "$num_addresses" "$target_network_bits"
-
+     read
     echo "bash ipv6.sh $ipv6_network $num_addresses $target_network_bits > ipv6.txt"
     bash ipv6.sh "$ipv6_network" "$num_addresses" "$target_network_bits" > ipv6.txt
+     read
 }
 
 trim_file() {
@@ -55,8 +56,11 @@ assign_ipv6() {
     ip a
     read -p "请输入ipv6网络接口: " network_interface
 
-    # 输出命令并添加回车符
-    echo -e "bash assign_ipv6.sh $network_interface ipv6.txt\n"
+    # 输出命令
+echo "bash assign_ipv6.sh "$network_interface" ipv6.txt"  
+
+# 自动执行命令
+bash assign_ipv6.sh "$network_interface" ipv6.txt
 
     read
 }
