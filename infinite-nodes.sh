@@ -1,6 +1,14 @@
 #!/bin/bash
 generate_ipv6() {
-wget https://github.com/mi1314cat/reality_xray/raw/refs/heads/main/ipv6.sh
+current_path=$(pwd)
+
+# 检查当前路径是否存在 ipv6.sh
+if [ ! -f "$current_path/ipv6.sh" ]; then
+    # 如果不存在，则下载文件
+    wget https://github.com/mi1314cat/reality_xray/raw/refs/heads/main/ipv6.sh
+else
+    echo "当前路径下已存在 ipv6.sh，跳过下载。"
+fi
 read -p "前置脚本已完成回车继续"
 clear
 # 获取用户输入
@@ -30,7 +38,16 @@ trim_file() {
 }
 # 生成临时ipv6
 assign_ipv6() {
-wget https://github.com/mi1314cat/reality_xray/raw/refs/heads/main/assign_ipv6.sh
+# 当前路径
+current_path=$(pwd)
+
+# 检查当前路径是否存在 assign_ipv6.sh
+if [ ! -f "$current_path/assign_ipv6.sh" ]; then
+    # 如果不存在，则下载文件
+    wget https://github.com/mi1314cat/reality_xray/raw/refs/heads/main/assign_ipv6.sh
+else
+    echo "当前路径下已存在 assign_ipv6.sh，跳过下载。"
+fi
 read -p "前置脚本已完成回车继续"
 clear
 ip a 
