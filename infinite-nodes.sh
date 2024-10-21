@@ -36,7 +36,7 @@ ip a
 
 read -p "请输入ipv6网络接口: " network_interface
 
-echo "assign_ipv6.sh $network_interface ipv6.txt"
+echo "bash assign_ipv6.sh $network_interface ipv6.txt"
 }
 generate_nodes() {
 
