@@ -14,6 +14,7 @@ generate_ipv6() {
      clear
      ip a
     # 获取用户输入
+    echo "ipv6格式：2712:4e70:1520:1444:0:9227:71ab:2b78/64"
     read -p "请输入 IPv6 网络地址: " ipv6_network
     read -p "请输入要生成的地址数量 (默认 15): " num_addresses
     read -p "请输入目标网络位数 (默认 128): " target_network_bits
@@ -27,7 +28,7 @@ generate_ipv6() {
     # 设置默认值
     num_addresses=${num_addresses:-15}
     target_network_bits=${target_network_bits:-128}
-
+       
     # 输出命令并添加回车符
     echo "bash ipv6.sh $ipv6_network $num_addresses $target_network_bits"
      bash ipv6.sh "$ipv6_network" "$num_addresses" "$target_network_bits"
