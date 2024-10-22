@@ -32,10 +32,10 @@ generate_ipv6() {
     # 输出命令并添加回车符
     echo "bash ipv6.sh $ipv6_network $num_addresses $target_network_bits"
      bash ipv6.sh "$ipv6_network" "$num_addresses" "$target_network_bits"
-     read
+     
     echo "bash ipv6.sh $ipv6_network $num_addresses $target_network_bits > ipv6.txt"
     bash ipv6.sh "$ipv6_network" "$num_addresses" "$target_network_bits" > ipv6.txt
-     read
+   
 }
 
 trim_file() {
