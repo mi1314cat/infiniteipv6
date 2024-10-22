@@ -6,7 +6,7 @@ generate_ipv6() {
     # 检查当前路径是否存在 ipv6.sh
     if [ ! -f "$current_path/ipv6.sh" ]; then
         # 如果不存在，则下载文件
-        wget https://github.com/mi1314cat/reality_xray/raw/refs/heads/main/ipv6.sh
+        wget https://github.com/mi1314cat/infiniteipv6/raw/refs/heads/main/ipv6.sh
     else
         echo "当前路径下已存在 ipv6.sh，跳过下载。"
     fi
@@ -48,7 +48,7 @@ assign_ipv6() {
     # 检查当前路径是否存在 assign_ipv6.sh
     if [ ! -f "$current_path/assign_ipv6.sh" ]; then
         # 如果不存在，则下载文件
-        wget https://github.com/mi1314cat/reality_xray/raw/refs/heads/main/assign_ipv6.sh
+        wget https://github.com/mi1314cat/infiniteipv6/raw/refs/heads/main/assign_ipv6.sh
     else
         echo "当前路径下已存在 assign_ipv6.sh，跳过下载。"
     fi
@@ -66,7 +66,7 @@ bash assign_ipv6.sh "$network_interface" ipv6.txt
 }
 
 generate_nodes() {
-    bash -c "$(curl -s -L https://github.com/mi1314cat/reality_xray/raw/refs/heads/main/reality_xray_ip.sh)"
+    bash -c "$(curl -s -L https://github.com/mi1314cat/xary-core/raw/refs/heads/main/reality_xray_ip.sh)"
 }
 
 main() {
