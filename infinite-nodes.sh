@@ -63,7 +63,7 @@ echo "bash assign_ipv6.sh "$network_interface" ipv6.txt"
 # 自动执行命令
 bash assign_ipv6.sh "$network_interface" ipv6.txt
 
-    read
+    
 }
 
 generate_nodes() {
