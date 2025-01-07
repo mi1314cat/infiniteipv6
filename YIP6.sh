@@ -28,7 +28,8 @@ if ! [[ "$NUM_ADDRESSES" =~ ^[0-9]+$ ]] || [ "$NUM_ADDRESSES" -le 0 ]; then
 fi
 
 # 获取默认网卡
-INTERFACE=$(ip -4 route show default | awk '{print $5}')
+INTERFACE=$(ip -o link show | awk '/state UP/ {print $2}' | sed 's/://')
+
 if [ -z "$INTERFACE" ]; then
     echo "Error: No active network interface found."
     exit 1
