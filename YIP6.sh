@@ -13,9 +13,10 @@ read IPv6_PREFIX
 echo "请输入要生成的 IPv6 地址数量:"
 read NUM_ADDRESSES
 
-# 检查 IPv6 前缀格式并提取前缀部分（去掉 /64）
+# 检查 IPv6 前缀格式
 if [[ "$IPv6_PREFIX" =~ ^([0-9a-fA-F:]+)(/([0-9]+))?$ ]]; then
-    IPv6_PREFIX="${BASH_REMATCH[1]}"  # 提取前缀部分，去掉子网掩码
+    PREFIX="${BASH_REMATCH[1]}"  # 提取前缀部分
+    NETMASK="${BASH_REMATCH[2]}"  # 提取子网掩码部分
 else
     echo "错误: IPv6 前缀格式无效。"
     exit 1
@@ -54,15 +55,15 @@ for i in $(seq 0 $((NUM_ADDRESSES - 1))); do
     SUFFIX_HEX=$(printf "%04x" $SUFFIX)
     
     # 生成完整的 IPv6 地址
-    IP="${IPv6_PREFIX}${SUFFIX_HEX}"
+    IP="${PREFIX}${SUFFIX_HEX}"
 
     # 使用 ip 命令添加 IPv6 地址
     echo "正在将 IPv6 地址 $IP 添加到接口 $INTERFACE"
-    sudo ip -6 addr add "$IP/64" dev "$INTERFACE" || { echo "错误: 无法添加 IPv6 地址 $IP"; exit 1; }
+    sudo ip -6 addr add "$IP/$NETMASK" dev "$INTERFACE" || { echo "错误: 无法添加 IPv6 地址 $IP"; exit 1; }
 done
 
 # 更新路由配置（如果需要）
 echo "正在添加 IPv6 默认路由"
-sudo ip -6 route add default via "${IPv6_PREFIX}1" || { echo "错误: 无法添加默认路由"; exit 1; }
+sudo ip -6 route add default via "${PREFIX}1" || { echo "错误: 无法添加默认路由"; exit 1; }
 
-echo "IPv6 地址成功添加！"
+echo "IPv6 地址成功添加，并且会在系统重启后保持有效！"
